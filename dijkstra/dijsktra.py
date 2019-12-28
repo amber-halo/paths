@@ -40,25 +40,37 @@ print(costos)
 matriz[i, j] = 0
 nodosVisitados = []
 distancia  = 0
+i = 0
 
-for i in range(cNodos):
+while (True):
+    print('i = ', i)
     v = math.inf
     nodoN = 0
+    distanciaV = 0
     for j in range(cNodos):
-        if (costos[i, j] != math.inf):
+        if (costos[i, j] != math.inf and j not in nodosVisitados):
+            #print('valor en i,j = ', costos[i, j])
             suma = distancia + costos[i, j]
+            print('suma --- distancia: ', distancia, ', costo: ', costos[i,j])
             if (suma < v):
                 v = suma
                 nodoN = j
+                distanciaV = costos[i,j]
                 pass
             pass
         pass
 
+    #print('nodo agregado = ', i)
+    nodosVisitados.append(i)
+    #print('nodos visitados = ', nodosVisitados)
     i = nodoN
-    distancia += v
+    distancia += distanciaV
     print('nuevo nodo = ', i)
     print('distancia actual = ', distancia)
-    nodosVisitados.append(1)
+    #nodosVisitados.append(i)
+    print('nodos visitados = ', nodosVisitados)
+
+    print('-----------------------')
 
     if (len(nodosVisitados) == cNodos):
         break
