@@ -11,7 +11,7 @@ for i in range (cNodos):
         pass
     pass
 
-matriz = costos
+#matriz = costos
 
 costos[0, 1] = 3
 costos[0, 2] = 1
@@ -33,11 +33,18 @@ print(costos)
 
 # Comienza algoritmo
 
-# 1. Marcar el nodo inicial con una distancia actual de 0 y el resto con infinito.
+'''
+1. Marcar el nodo inicial elegido con una distancia actual de 0 y el resto con infinito.
+2. Establecer el nodo no visitado con la menor distancia actual como el nodo actual A.
+3. Para cada vecino V del nodo actual A: suma la distancia actual de A con el peso de la arista que conecta a A con V. Si el resultado es menor que la distancia actual   de V, establecerlo como la nueva distancia actual de V.
+4. Marca el nodo actual A como visitado.
+5. Si hay nodos no visitados, ir al paso 2.
 
-# Nodo inicial = A => [0,0]
+'''
 
-matriz[i, j] = 0
+# 1
+
+#matriz[i, j] = 0
 nodosVisitados = []
 distancia  = 0
 i = 0
@@ -60,14 +67,11 @@ while (True):
             pass
         pass
 
-    #print('nodo agregado = ', i)
     nodosVisitados.append(i)
-    #print('nodos visitados = ', nodosVisitados)
     i = nodoN
     distancia += distanciaV
     print('nuevo nodo = ', i)
     print('distancia actual = ', distancia)
-    #nodosVisitados.append(i)
     print('nodos visitados = ', nodosVisitados)
 
     print('-----------------------')
