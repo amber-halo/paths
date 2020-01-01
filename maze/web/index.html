@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .start {
+            background-color: red;
+        }
+
+        .end {
+            background-color: blue;
+        }
+        
+        .path {
+            background-color: rgb(170, 199, 170);
+        }
+
+        .blocked {
+            background-color: black;
+        }
+
+        /* #tableBody td:hover {
+            background-color: black;
+        } */
+    </style>
+
+    <title>Maze</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Maze Solver</h1>
+            <div class="m-auto">
+                <button type="button" id="btnStart" class="btn btn-sm btn-outline-secondary">Iniciar</button>
+                <button type="button" id="btnRestart" class="btn btn-sm btn-outline-secondary">Reiniciar</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-sm" id="table">
+            <tbody id="tableBody">
+                <!-- <tr>
+                    <td>Hola</td>
+                    <td>Hola</td>
+                    <td>Hola</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

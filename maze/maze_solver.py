@@ -1,20 +1,25 @@
 import numpy as np
 
-width = 6
-height = 6
-maze = np.array ( [ [1, 1, 1, 1, 2, 2],
-                    [2, 1, 2, 1, 1, 1],
-                    [2, 1, 2, 2, 1, 2],
-                    [1, 1, 2, 1, 2, 2],
-                    [2, 1, 1, 1, 2, 1],
-                    [2, 1, 2, 1, 1, 1] ])
+width = 5
+height = 5
+#maze = np.array ( [ [1, 1, 1, 1, 2, 2],
+#                    [2, 1, 2, 1, 1, 1],
+#                    [2, 1, 2, 2, 1, 2],
+#                    [1, 1, 2, 1, 2, 2],
+#                    [2, 1, 1, 1, 2, 1],
+#                    [2, 1, 2, 1, 1, 1] ])
+maze = np.array ( [  [1, 1, 1, 1, 2],
+                    [1, 2, 1, 1, 2],
+                    [1, 2, 1, 1, 2],
+                    [1, 2, 2, 1, 2],
+                    [1, 2, 2, 2, 2] ] )
 wasHere = np.empty([width, height], dtype=bool)
 #wasHere.fill(False)
 correctPath = np.empty([width, height], dtype=bool)
 startX = 0
 startY = 0
-endX = 4
-endY = 5
+endX = 3
+endY = 3
 
 def solveMaze():
     wasHere.fill(False)
