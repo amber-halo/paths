@@ -1,0 +1,83 @@
+/* HEADER STYLES */
+
+.startIndicator {
+    background-color: red;
+    color: red;
+}
+
+.endIndicator {
+    background-color: blue;
+    color: blue;
+}
+
+.pathIndicator {
+    background-color: rgb(158, 155, 121);
+    color: rgb(158, 155, 121);
+}
+
+.exploredIndicator {
+    background-color: rgba(128, 255, 0, 0.486);
+    color: rgba(128, 255, 0, 0.486);
+}
+
+.blockedIndicator {
+    background-color: black;
+    color: black;
+}
+
+/* MAP STYLES */
+ 
+.start {
+    background-color: red;
+}
+
+.start:hover {
+    cursor: pointer;
+}
+
+.end {
+    background-color: blue;
+}
+
+.end:hover {
+    cursor: pointer;
+}
+
+.path {
+    /* background-color: rgb(160, 214, 201); */
+    animation: animPath 3s;
+    animation-fill-mode: both;
+}
+
+@keyframes animPath {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: rgb(158, 155, 121);
+    }
+}
+
+.searchPath {
+    /* background-color: chartreuse; */
+    animation: animSearch 1s;
+    /* animation-delay: 0.1s; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes animSearch {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: rgba(128, 255, 0, 0.486);
+    }
+}
+
+.blocked {
+    background-color: black;
+}
+
+/* #tableBody td:hover {
+    background-color: black;
+} */

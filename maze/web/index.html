@@ -6,56 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <style>
-        .start {
-            background-color: red;
-        }
-
-        .end {
-            background-color: blue;
-        }
-        
-        .path {
-            background-color: rgb(170, 199, 170);
-        }
-
-        .blocked {
-            background-color: black;
-        }
-
-        /* #tableBody td:hover {
-            background-color: black;
-        } */
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
     <title>Maze</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h1>Maze Solver</h1>
+    <div class="pt-3">
+        <div class="m-0 p-0 row header">
+            <!-- <h1>Maze Solver</h1> -->
             <div class="m-auto">
-                <button type="button" id="btnStart" class="btn btn-sm btn-outline-secondary">Iniciar</button>
-                <button type="button" id="btnRestart" class="btn btn-sm btn-outline-secondary">Reiniciar</button>
+                <div class="d-inline">
+                    <div class="d-inline startDiv">
+                        <div class="d-inline startIndicator border">HHH</div>
+                        <p class="d-inline">Inicio</p>
+                    </div>
+
+                    <div class="d-inline ml-3">
+                        <div class="d-inline endIndicator border">HHH</div>
+                        <p class="d-inline">Final</p>
+                    </div>
+
+                    <div class="d-inline ml-3">
+                        <div class="d-inline pathIndicator border">HHH</div>
+                        <p class="d-inline">Camino</p>
+                    </div>
+
+                    <div class="d-inline ml-3">
+                        <div class="d-inline exploredIndicator border">HHH</div>
+                        <p class="d-inline">Explorado</p>
+                    </div>
+
+                    <div class="d-inline ml-3">
+                        <div class="d-inline blockedIndicator border">HHH</div>
+                        <p class="d-inline">Bloqueado</p>
+                    </div>
+                </div>
+
+                <div class="d-inline ml-5">
+                    <button type="button" id="btnStart" class="d-inline btn btn-sm btn-primary">Iniciar</button>
+                    <button type="button" id="btnRestart" class="d-inline btn btn-sm btn-secondary">Reiniciar</button>
+                </div>
+                
             </div>
         </div>
-        
     </div>
 
-    <div class="container">
+    <div class="mt-4">
         <table class="table table-bordered table-sm" id="table">
             <tbody id="tableBody">
-                <!-- <tr>
-                    <td>Hola</td>
-                    <td>Hola</td>
-                    <td>Hola</td>
-                </tr> -->
             </tbody>
         </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"></script>
     <script src="index.js"></script>
+
+    <script>
+        // feather.replace()
+    </script>
 </body>
 </html>
