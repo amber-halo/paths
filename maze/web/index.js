@@ -83,6 +83,12 @@ $("#btnRestart").on('click', function () {
     $(document).find("#" + endX + "-" + endY).addClass('end')
 })
 
+$("#btnMaze").click(function () {
+    mazeGen()
+    $(document).find("#" + startX + "-" + startY).removeClass('blocked')
+    $(document).find("#" + endX + "-" + endY).removeClass('blocked')
+})
+
 //// VARIABLES ////
 const width = 50
 const height = 50
@@ -295,7 +301,7 @@ function BFS(mat, i, j, x, y) {
         console.log("The shortest path has length " + min_dist)
         printPath(node)
     } else {
-        console.log("Destination can't be reached from source to destination")
+        alert("No hay solucion.")
     }
 }
 
@@ -312,8 +318,83 @@ function startBFS() {
     BFS(maze, startX, startY, endX, endY)
 }
 
+//// MAZE ALGORITHM //// ////// //// MAZE ALGORITHM //// ////// //// MAZE ALGORITHM //// //////
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+var wall = 2
+var passage = 1
+
+function mazeGen() {
+
+    // console.table(maze)
+
+    var x = Math.floor(Math.random() * width)
+    var y = Math.floor(Math.random() * height)
+    let frontier = []
+    frontier.push([x, y, x, y])
+
+    let mazeW = []
+
+    for (let i = 0; i < width; i++) {
+        mazeW[i] = []
+        for (let j = 0; j < height; j++) {
+            mazeW[i][j] = false
+        }
+    }
+
+    console.log(mazeW)
+
+    while (frontier.length != 0) {
+        // console.log(frontier.length)
+        var f = frontier.splice( Math.floor(Math.random() * frontier.length), 1 )
+        // console.table(f)
+        x = f[0][2]
+        y = f[0][3]
+        // console.log(x + " | " + y)
+
+        if (mazeW[x][y] == false) {
+            // console.log("hola")
+            mazeW[ f[0][0] ] [ f[0][1] ] = mazeW[x][y] = true
+            if ( x >= 2 && mazeW[x-2][y] == false )
+                frontier.push([x-1, y, x-2, y])
+            if ( y >= 2 && mazeW[x][y-2] == false )
+                frontier.push([x, y-1, x, y-2])
+            if ( x < width-2 && mazeW[x+2][y] == false )
+                frontier.push([x+1, y, x+2, y])
+            if ( y < height-2 && mazeW[x][y+2] == false )
+                frontier.push([x, y+1, x, y+2])
+        }
+    }
+
+    cadena(mazeW)
+}
+
+function cadena(mazeW) {
+    let b = ""
+    for (let x = 0; x < width + 2; x++) 
+        b += "|"
+    b += "\n"
+    for (let y = 0; y < height; y++) {
+        b += "|"
+        for (let x = 0; x < width; x++)
+            // b += maze[x][y] == 2 ? "|" : " "
+            if (mazeW[x][y] == false) {
+                b += "|"
+                drawBlockCell(x, y)
+                // console.log("aqui")
+            } else {
+                b += " "
+            }
+        b += "|"
+        b += "\n"
+    }
+    for (let x = 0; x < width + 2; x++)
+        b += "|"
+    b += "\n"
+    console.log(b)
+}
+
+
+///////////////////////////////// DRAWING CELLS //////////////////////////////////////////
 
 async function drawCell(x, y) {
     var id = "#" + x +  "-" + y
@@ -324,4 +405,9 @@ async function drawCell(x, y) {
 function drawSearchCell(x, y) {
     var id = "#" + x +  "-" + y
     $(document).find(id).addClass('searchPath')
+}
+
+function drawBlockCell(x, y) {
+    var id = "#" + x +  "-" + y
+    $(document).find(id).addClass('blocked')
 }
